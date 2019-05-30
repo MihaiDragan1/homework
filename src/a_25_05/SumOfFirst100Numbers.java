@@ -1,4 +1,6 @@
-public class a_25_05 {
+package a_25_05;
+
+public class SumOfFirst100Numbers {
 
     public static void main(String[] args) {
         // Calculate the sum of the first 100 numbers higher than 0
