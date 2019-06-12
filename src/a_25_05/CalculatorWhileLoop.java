@@ -13,28 +13,29 @@ public class CalculatorWhileLoop {
         System.out.println("Introduceti operatia dorita: ");
 
 
-       char sign;
-        sign=scanner.next().charAt(0);
+        char sign;
+        sign = scanner.next().charAt(0);
 
-           while(sign == '+') {
+        //n-o sa mearga asa cum te astepti, in momentul asta merge exact ca atunci cand foloseai switch
+        while (sign == '+') {
 
-               System.out.println(n1 + " + " + n2 + " = " + (n1 + n2));
-                break;
-           }
-        while(sign == '-') {
-            System.out.println(n1 + " - " + n2 + " = " + (n1 - n2));
-           break;
+            System.out.println(n1 + " + " + n2 + " = " + (n1 + n2));
+            break;
         }
-             while(sign == '*') {
-                 System.out.println(n1 + " * " + n2 + " = " + (n1 * n2));
-                 break;
-             }
+        while (sign == '-') {
+            System.out.println(n1 + " - " + n2 + " = " + (n1 - n2));
+            break;
+        }
+        while (sign == '*') {
+            System.out.println(n1 + " * " + n2 + " = " + (n1 * n2));
+            break;
+        }
 
-        while(sign == '/') {
+        while (sign == '/') {
             System.out.println(n1 + " / " + n2 + " = " + (n1 / n2));
             break;
         }
 
-            }
-        }
+    }
+}
 

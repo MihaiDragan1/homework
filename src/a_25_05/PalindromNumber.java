@@ -5,15 +5,15 @@ public class PalindromNumber {
 
 // Check if a number is palindrom
 
-        int num = 1231, reversedInteger = 0, remainder, originalInteger;
+        int num = 1231, reversedInteger = 0, digit, originalInteger;
 
         originalInteger = num;
 
         // reversed integer is stored in variable
         while( num != 0 )
         {
-            remainder = num % 10;
-            reversedInteger = reversedInteger * 10 + remainder;
+            digit = num % 10;
+            reversedInteger = reversedInteger * 10 + digit;
             num  /= 10;
         }
 
