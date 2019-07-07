@@ -1,11 +1,11 @@
-package a_25_05;
+package b_22_06.RefactorFilesHomework1;
 
 import java.util.Scanner;
 
-public class PrimeNoLowerThanAGiveNo {
+public class RefactorPrimeNo {
 
 
-    public static void main(String[] args) {
+    public static String PrimeNumber() {
 
         Scanner scanner = new Scanner(System.in);
         int i = 0;
@@ -28,6 +28,12 @@ public class PrimeNoLowerThanAGiveNo {
             }
         }
         System.out.println("Prime numbers from 1 to n are :");
-        System.out.println(primeNumbers);
+
+    return primeNumbers;
+}
+    public static void main(String[] args) {
+        System.out.println(PrimeNumber());
+
     }
 }
+
