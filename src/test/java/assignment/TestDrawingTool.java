@@ -1,47 +1,93 @@
 package assignment;
 
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class TestDrawingTool {
+    double perimeter;
+    double area;
+    ArrayList<Double> perimeters = new ArrayList<>();
+    ArrayList<Double> areas = new ArrayList<>();
+    ArrayList<DrawingTool> drawingTools = new ArrayList<>();
+
+    public void addshape(DrawingTool shape) {
+        drawingTools.add(shape);
+
+    }
+  public void calculate() {
+        for (DrawingTool shape : drawingTools) {
+            this.perimeter = shape.perimeter();
+            perimeters.add(perimeter);
+            this.area = shape.area();
+            areas.add(area);
+        }
+        double sum = 0;
+        for (Double d : perimeters)
+            sum += d;
+        System.out.println("Perimeters'sum:" + (sum));
+        double sum2 = 0;
+        for (Double d1 : areas)
+            sum2 += d1;
+        System.out.println("Areas'sum:" + (sum2));
+    }
+
+
     public static void main(String[] args) {
+        TestDrawingTool calculation = new TestDrawingTool();
 
 
         // Rectangle test
-        double width = 5, length = 7;
-        DrawingTool rectangle = new Rectangle(width, length);
-        System.out.println("Rectangle width: " + width + " and length: " + length
-                + "\nResulting area: " + rectangle.area()
-                + "\nResulting perimeter: " + rectangle.perimeter() + "\n");
+
+        Rectangle r = new Rectangle(3, 4);
+        calculation.addshape(r);
+        System.out.println("Rectangle's perimeter is:" + (r.perimeter()));
+        System.out.println("Rectangle's area is:" + (r.area()));
+
+        Rectangle r1 = new Rectangle(10, 4);
+        System.out.println("There is a duplicate:"+(r1.equals(r)));
+
 
         // Square test
-        double side = 4;
-        DrawingTool square = new Square(side);
-        System.out.println("Square side: " + side
-                + "\nResulting area: " + square.area()
-                + "\nResulting perimeter: " + square.perimeter() + "\n");
+
+        Square s = new Square(10);
+        calculation.addshape(s);
+        System.out.println("Square's perimeter is:" + (s.perimeter()));
+        System.out.println("Square's area is:" + (s.area()));
+
+
+        Square s1 = new Square(10);
+        System.out.println("There is a duplicate:"+(s1.equals(s)));
+
 
         // Circle test
-        double radius = 5;
-        DrawingTool circle = new Circle(radius);
-        System.out.println("Circle radius: " + radius
-                + "\nResulting Area: " + circle.area()
-                + "\nResulting Perimeter: " + circle.perimeter() + "\n");
+
+        Circle c = new Circle(1);
+        calculation.addshape(c);
+        System.out.println("Circle perimeter is: " + (c.perimeter()));
+        System.out.println("Circle area is :" + (c.area()));
+
+        Circle c1 = new Circle(5);
+        calculation.addshape(c1);
+        System.out.println("Circle perimeter is: " + (c1.perimeter()));
+        System.out.println("Circle area is :" + (c1.area()));
+
+        System.out.println("There is a duplicate:"+(c1.equals(c)));
+
 
         // Triangle test
-        double a = 5, b = 3, c = 4;
-        DrawingTool triangle = new Triangle(a,b,c);
-        System.out.println("Triangle sides lengths: " + a + ", " + b + ", " + c
-                + "\nResulting Area: " + triangle.area()
-                + "\nResulting Perimeter: " + triangle.perimeter() + "\n");
 
+        Triangle t = new Triangle(1, 2, 3);
+        calculation.addshape(t);
+        System.out.println("Triangle's perimeter is:" + (t.perimeter()));
+        System.out.println("Triangle's area is:" + (t.area()));
 
-        List<DrawingTool> shapes = new ArrayList<>();
-        shapes.add(new Rectangle(1.0, 2.0));
-        shapes.add(new Circle(5.0));
-        for (DrawingTool shape : shapes){
-            System.out.println(shape.perimeter()); // every Shape will do it their own way
-        }
+        Triangle t1 = new Triangle(1, 2, 3);
+        calculation.addshape(t1);
+        System.out.println("Triangle's perimeter is:" + (t1.perimeter()));
+        System.out.println("Triangle's area is:" + (t1.area()));
 
+        System.out.println("There is a duplicate:"+(t1.equals(t)));
+
+    calculation.calculate();
     }
 }
