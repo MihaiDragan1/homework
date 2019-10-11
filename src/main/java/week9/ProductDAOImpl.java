@@ -13,7 +13,7 @@ public class ProductDAOImpl implements ProductDAO {
                 .stream()
                 .forEach(System.out::println);
 
- productDAO.create(Product.builder()
+        productDAO.create(Product.builder()
                 .productCode("A_12")
                 .productVendor("Audi")
                 .productLine("Car")
@@ -27,9 +27,9 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public List<Product> findAll(){
+    public List<Product> findAll() {
         List<Product> product = new ArrayList<>();
-        try (Connection connection = getConnection()){
+        try (Connection connection = getConnection()) {
             String sql = "SELECT * FROM products";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -38,11 +38,11 @@ public class ProductDAOImpl implements ProductDAO {
                 products.setProductCode(resultSet.getString("productCode"));
                 products.setProductLine(resultSet.getString("productLine"));
                 products.setProductVendor(resultSet.getString("productVendor"));
-             //   products.getProductDescription(resultSet.getString("productDescription"));
+                //   products.getProductDescription(resultSet.getString("productDescription"));
                 product.add(products);
             }
             preparedStatement.close();
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return product;
@@ -66,7 +66,7 @@ public class ProductDAOImpl implements ProductDAO {
                 product.setProductCode(resultSet.getString("productCode"));
                 product.setProductLine(resultSet.getString("productLine"));
                 product.setProductVendor(resultSet.getString("productVendor"));
-              // product.getProductDescription(resultSet.getString("productDescription"));
+                // product.getProductDescription(resultSet.getString("productDescription"));
                 products.add(product);
             }
             preparedStatement.close();
@@ -88,7 +88,7 @@ public class ProductDAOImpl implements ProductDAO {
             preparedStatement.setString(2, product.getProductLine());
             preparedStatement.setString(3, product.getProductVendor());
             preparedStatement.setString(4, product.getProductDescription());
-            int numberOfModifedRows = preparedStatement.executeUpdate();//se fol pt insert, update, delete
+            int numberOfModifedRows = preparedStatement.executeUpdate();
             if (numberOfModifedRows == 1) {
                 System.out.println("Inserare cu succes");
             }
@@ -103,7 +103,7 @@ public class ProductDAOImpl implements ProductDAO {
 
             String sql = "DELETE FROM products where productCode = S10_1678";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,productCode);
+            preparedStatement.setString(1, productCode);
 
             int numberOfModifedRows = preparedStatement.executeUpdate();
             if (numberOfModifedRows == 1) {
@@ -114,19 +114,20 @@ public class ProductDAOImpl implements ProductDAO {
         }
     }
 
-private Connection getConnection() {
-    try {
-        return DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/classicmodels?useSSL=true",
-                "root",
-                "asd");
-    }  catch(SQLException e){
+    private Connection getConnection() {
+        try {
+            return DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/classicmodels?useSSL=true",
+                    "root",
+                    "Mihaita1982!@#");
+        } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
-        @Override
-                public void update (String productCode, Product product) {
-}
+
+    @Override
+    public void update(String productCode, Product product) {
+    }
 
 }
